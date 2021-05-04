@@ -22,7 +22,7 @@ resource "google_compute_address" "vm_static_ip" {
 
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
-  machine_type = "f1.micro"
+  machine_type = "f1-micro"
 
   boot_disk {
     initialize_params {
