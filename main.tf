@@ -1,6 +1,5 @@
 provider "google" {
   credentials = "terraform-key.json"
-
   project = "playground-s-11-d8f0bc2e"
   region  = "us-central1"
   zone    = "us-central1-c"
@@ -18,7 +17,7 @@ terraform {
   }
 }
 resource "google_compute_address" "vm_static_ip" {
-  name = "tf-static-ip"
+  name = "terraform-static-ip"
 }
 
 resource "google_compute_instance" "vm_instance" {
