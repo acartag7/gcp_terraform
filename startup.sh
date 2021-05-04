@@ -1,5 +1,5 @@
 #!/bin/bash
-apt update -y
+yum update -y
 yum install httpd -y
 service httpd start
 

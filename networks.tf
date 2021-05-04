@@ -40,18 +40,18 @@ module "network_fabric-net-firewall" {
 }
 
 resource "google_compute_firewall" "default" {
-    name = "default-firewall"
-    network = module.network.network_name
-    
-    allow {
-      protocol = "icmp"
-    }
+  name    = "default-firewall"
+  network = module.network.network_name
 
-    allow {
-      protocol = "tcp"
-      ports = ["80", "8080", {1000-2000}]
-    }
+  allow {
+    protocol = "icmp"
+  }
 
-    source_tags = [ "web" ]
-    source_ranges = [ "0.0.0.0/0" ]
+  allow {
+    protocol = "tcp"
+    ports    = ["80", "8080", "1000-2000"]
+  }
+
+  source_tags   = ["web"]
+  source_ranges = ["0.0.0.0/0"]
 }
