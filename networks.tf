@@ -21,5 +21,5 @@ module "network_fabric-net-firewall" {
   project_id              = var.project
   network                 = module.network.network_name
   internal_ranges_enabled = true
-  internal_ranges         = var.cidr
+  internal_ranges         = [10.0.0.0/16]
 }
