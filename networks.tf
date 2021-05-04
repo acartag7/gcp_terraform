@@ -55,3 +55,12 @@ resource "google_compute_firewall" "default" {
   source_tags   = ["web"]
   source_ranges = ["0.0.0.0/0"]
 }
+
+module "lb" {
+  source  = "GoogleCloudPlatform/lb/google"
+  region       = var.region
+  name         = "load-balancer"
+  service_port = 80
+  target_tags  = ["my-target-pool"]
+  network      = module.network.network_name
+}
