@@ -9,3 +9,10 @@ provider "google" {
 resource "google_compute_network" "vpc_network" {
     name = "main-deployment-network"
 }
+
+terraform {
+    backend "gcs" {
+        bucket = "terraform_state_0504"
+        prefix = "Terraform-Info"
+    }
+}
