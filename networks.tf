@@ -16,9 +16,9 @@ module "network" {
 }
 
 module "network_routes" {
-  source     = "terraform-google-modules/network/google//modules/routes"
-  project_id = var.project
-  network    = module.network.network_name
+  source       = "terraform-google-modules/network/google//modules/routes"
+  project_id   = var.project
+  network_name = module.network.network_name
 
   routes = [
     {
