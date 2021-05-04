@@ -18,7 +18,10 @@ resource "google_compute_address" "vm_static_ip" {
 
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
+  metadata_startup_script = "startup.sh"
   machine_type = "f1-micro"
+  tags = [ "web" ]
+  zone = var.zone
 
   boot_disk {
     initialize_params {

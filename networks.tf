@@ -38,3 +38,20 @@ module "network_fabric-net-firewall" {
   internal_ranges_enabled = true
   internal_ranges         = ["10.0.0.0/16"]
 }
+
+resource "google_compute_firewall" "default" {
+    name = "default-firewall"
+    network = module.network.network_name
+    
+    allow {
+      protocol = "icmp"
+    }
+
+    allow {
+      protocol = "tcp"
+      ports = ["80", "8080", {1000-2000}]
+    }
+
+    source_tags = [ "web" ]
+    source_ranges = [ "0.0.0.0/0" ]
+}
