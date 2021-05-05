@@ -29,7 +29,7 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
   network_interface {
-    network = module.network.network_name
+    network = default
     access_config {
     }
   }
