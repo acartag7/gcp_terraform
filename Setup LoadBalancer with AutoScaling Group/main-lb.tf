@@ -15,8 +15,8 @@ resource "google_compute_autoscaler" "foobar" {
   target = google_compute_instance_group_manager.web-server-manager.self_link
 
   autoscaling_policy {
-    max_replicas    = 5
-    min_replicas    = 2
+    max_replicas    = 7
+    min_replicas    = 4
     cooldown_period = 60
 
     cpu_utilization {
