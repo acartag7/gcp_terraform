@@ -64,7 +64,7 @@ resource "google_compute_instance_group_manager" "web-server-manager" {
     name               = "primary"
   }
 
-  target_pools       = [google_compute_target_pool.web-server.self_link]
+  target_pools       = [google_compute_target_pool.front-web-servers.self_link]
   base_instance_name = "web"
 }
 
