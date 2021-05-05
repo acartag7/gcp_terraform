@@ -12,7 +12,7 @@ resource "google_compute_autoscaler" "foobar" {
   name   = "my-autoscaler"
   project = var.project
   zone   = "us-central1-c"
-  target = google_compute_instance_group_manager.my-web-server-manager.self_link
+  target = google_compute_instance_group_manager.web-server-manager.self_link
 
   autoscaling_policy {
     max_replicas    = 5
@@ -64,7 +64,7 @@ resource "google_compute_instance_group_manager" "web-server-manager" {
     name               = "primary"
   }
 
-  target_pools       = [google_compute_target_pool.front-web-servers.self_link]
+  target_pools       = [google_compute_target_pool.web-servers.self_link]
   base_instance_name = "web"
 }
 
