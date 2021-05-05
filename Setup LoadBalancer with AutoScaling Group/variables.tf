@@ -1,5 +1,5 @@
 variable "project" {
-  default = "playground-s-11-d8f0bc2e"
+  default = "playground-s-11-19b21394"
 }
 
 variable "region" {
